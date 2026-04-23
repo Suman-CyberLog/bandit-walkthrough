@@ -2,12 +2,7 @@
 This repository documents my journey through the Bandit wargame from OverTheWire. The goal of this project is to learn and practice fundamental Linux and cybersecurity concepts through hands-on challenges.
 
 # About Bandit
-Bandit is a beginner-friendly wargame designed to teach:
-Basic Linux commands
-File handling and permissions
-SSH usage
-Problem-solving in a Linux environment
-
+Bandit is a beginner-friendly wargame designed to teach: Basic Linux commands, File handling and permissions, SSH usage, Problem-solving in a Linux environment
 Each level presents a challenge where the objective is to find the password for the next level.
 
 # Tools & Concepts Used
