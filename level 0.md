@@ -1,7 +1,5 @@
 # Bandit Level 0
-**Level Goal**
-
-The goal of this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go to the Level 1 page to find out how to beat Level 1.
+http://overthewire.org/wargames/bandit/bandit0.html
 
 **SOLUTION**
 
@@ -28,3 +26,29 @@ This leads to the following command:
 When the command is executed, the terminal prompts for a password. Entering the provided password (bandit0) grants access to the remote machine. Successfully logged into the Bandit server.
 
 Since the task was only to log in, this concludes level 0
+
+
+# Bandit Level 1
+http://overthewire.org/wargames/bandit/bandit1.html
+
+**SOLUTION**
+
+Now, after log in from the bandit0 shell,  we land in the home directory from user ‘bandit0’. I can check this with the **pwd** command.
+
+we have used the **'ls'** command to list the files in the current directory. We found the **readme** file. And now to read the password I have used the **'cat'** command. After using cat command the password for the ‘bandit1’ user is obtained.
+
+<img width="752" height="202" alt="Screenshot 2026-04-24 193219" src="https://github.com/user-attachments/assets/f0f76568-71fa-4b8e-839b-5076ecde7157" />
+
+
+# Bandit Level 2
+http://overthewire.org/wargames/bandit/bandit2.html
+
+**SOLUTION**
+
+On the Bandit website it says that the password for the next level is stored in a file called **'**-**'**. So, we can't directly use the cat command on the file as the file is named -(hyphen). . If we directly use cat command, it won’t be able to understand that hyphen is a file name. So, we will use the command with the full path **[home/bandit1/-]**. This will help us to read the password stored as shown in the given figure. 
+
+
+<img width="586" height="122" alt="Screenshot 2026-04-24 194636" src="https://github.com/user-attachments/assets/28e64b3b-c9cb-4862-bd54-605d290c2d24" />
+
+So we got the next password.
+
