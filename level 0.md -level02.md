@@ -52,3 +52,21 @@ On the Bandit website it says that the password for the next level is stored in 
 
 So we got the next password.
 
+
+# Bandit Level 3
+http://overthewire.org/wargames/bandit/bandit3.html
+
+**SOLUTION**
+
+The password for the next level is stored inside a file named spaces in this filename. So, we use the **ls** command. In order to read files with spaces in the name you have to put the file name in quotation marks. We ran " **cat "spaces in this filename**" " and received the next password:
+
+<img width="500" height="92" alt="image" src="https://github.com/user-attachments/assets/02493a07-b8f1-4e55-a378-6f367294e784" />
+
+# Bandit Level 4
+http://overthewire.org/wargames/bandit/bandit4.html
+
+**SOLUTION**
+
+The password for the next level is stored inside a directory named inhere. So, we use the ls command  then "**cd**" to move into the inhere folder. After traversing inside inhere directory. we ran "**ls -a**", with the -a flag it shows all files, specifically also the hidden files. The hidden file is named ...Hiding-From-You. And after running **cat "...Hiding-From-You"**. We got the next password.
+
+<img width="553" height="137" alt="image" src="https://github.com/user-attachments/assets/228ec10f-1639-4a51-b73d-baf530aad80b" />
