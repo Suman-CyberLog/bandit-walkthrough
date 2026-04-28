@@ -70,3 +70,15 @@ http://overthewire.org/wargames/bandit/bandit4.html
 The password for the next level is stored inside a directory named inhere. So, we use the ls command  then "**cd**" to move into the inhere folder. After traversing inside inhere directory. we ran "**ls -a**", with the -a flag it shows all files, specifically also the hidden files. The hidden file is named ...Hiding-From-You. And after running **cat "...Hiding-From-You"**. We got the next password.
 
 <img width="553" height="137" alt="image" src="https://github.com/user-attachments/assets/228ec10f-1639-4a51-b73d-baf530aad80b" />
+
+# Bandit Level 5
+http://overthewire.org/wargames/bandit/bandit5.html
+
+**SOLUTION**
+
+The password is stored in file inside the inhere folder, inside a **human-readable file**. After traversing inside inhere directory we run **ls** command. This shows us a bunch of files as shown in the image. We will use the file command to get the information about the files, to see which one is the human readable one. We can see that only **‘-file07’** is of type **‘ASCII text’**, which is one of the encodings, that humans can read.So, let’s read it using **cat** command.
+
+<img width="781" height="376" alt="Screenshot 2026-04-27 212342" src="https://github.com/user-attachments/assets/6ea59160-a3d3-4056-b77a-869448dbee0b" />
+
+
+This gives us the password for the next level. 
