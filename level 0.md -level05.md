@@ -1,4 +1,4 @@
-# Bandit Level 0
+# Bandit Level 0 
 http://overthewire.org/wargames/bandit/bandit0.html
 
 **SOLUTION**
@@ -28,7 +28,7 @@ When the command is executed, the terminal prompts for a password. Entering the 
 Since the task was only to log in, this concludes level 0
 
 
-# Bandit Level 1
+# Bandit Level 0 → Level 1
 http://overthewire.org/wargames/bandit/bandit1.html
 
 **SOLUTION**
@@ -40,7 +40,7 @@ we have used the **'ls'** command to list the files in the current directory. We
 <img width="752" height="202" alt="Screenshot 2026-04-24 193219" src="https://github.com/user-attachments/assets/f0f76568-71fa-4b8e-839b-5076ecde7157" />
 
 
-# Bandit Level 2
+# Bandit Level 1 → Level 2
 http://overthewire.org/wargames/bandit/bandit2.html
 
 **SOLUTION**
@@ -53,7 +53,7 @@ On the Bandit website it says that the password for the next level is stored in 
 So we got the next password.
 
 
-# Bandit Level 3
+# Bandit Level 2 → Level 3
 http://overthewire.org/wargames/bandit/bandit3.html
 
 **SOLUTION**
@@ -62,7 +62,7 @@ The password for the next level is stored inside a file named spaces in this fil
 
 <img width="500" height="92" alt="image" src="https://github.com/user-attachments/assets/02493a07-b8f1-4e55-a378-6f367294e784" />
 
-# Bandit Level 4
+# Bandit Level 3 → Level 4
 http://overthewire.org/wargames/bandit/bandit4.html
 
 **SOLUTION**
@@ -71,7 +71,7 @@ The password for the next level is stored inside a directory named inhere. So, w
 
 <img width="553" height="137" alt="image" src="https://github.com/user-attachments/assets/228ec10f-1639-4a51-b73d-baf530aad80b" />
 
-# Bandit Level 5
+# Bandit Level 4 → Level 5
 http://overthewire.org/wargames/bandit/bandit5.html
 
 **SOLUTION**
@@ -82,3 +82,22 @@ The password is stored in file inside the inhere folder, inside a **human-readab
 
 
 This gives us the password for the next level. 
+
+
+# Bandit Level 5 → Level 6
+http://overthewire.org/wargames/bandit/bandit6.html
+
+**SOLUTION**
+
+The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+
+a. human-readable<br>
+b. 1033 bytes in size<br>
+c. not executable
+
+To start run **"cd"** into the inhere folder, After traversing inside inhere directory we run **ls** commandand noticed that there were a bunch of folder and inside those folders a couple of files. We will use the file size to find the file (**find . -size 1033c**) in which we have to use ‘c’ for depicting size in bytes. From this command we got to know that the password is stored in file2. So, let’s read it using **cat** command.
+
+<img width="805" height="141" alt="Screenshot 2026-04-28 215904" src="https://github.com/user-attachments/assets/c7ca270c-7e5a-4a96-8940-bc665be324dc" />
+
+This gives us the password for the next level
+
