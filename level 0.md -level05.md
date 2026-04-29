@@ -99,5 +99,24 @@ To start run **"cd"** into the inhere folder, After traversing inside inhere dir
 
 <img width="805" height="141" alt="Screenshot 2026-04-28 215904" src="https://github.com/user-attachments/assets/c7ca270c-7e5a-4a96-8940-bc665be324dc" />
 
-This gives us the password for the next level
+This gives us the password for the next level.
+
+# Bandit Level 6 → Level 7
+http://overthewire.org/wargames/bandit/bandit7.html
+
+**SOLUTION**
+
+The password for the next level is stored somewhere on the server and has all of the following properties:
+
+a. owned by user bandit7<br>
+b. owned by group bandit6<br>
+c. 33 bytes in size
+
+The **find** command can be used to find files on the server. Running the command **find / -type f -user bandit7 -group bandit6 -size 33c** .however, it will also print a Permission denied error for files that we do not have permission. so, we have used 2>/dev/null to hide the error messages. Now as we can see in the given image, we successfully located the password file hidden over the server. So, let’s read it using **cat** command.
+
+<img width="772" height="165" alt="image" src="https://github.com/user-attachments/assets/52e385e5-64c9-42ca-a554-68314d43f3cb" />
+
+This gives us the password for the next level.
+
+
 
