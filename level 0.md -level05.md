@@ -112,7 +112,7 @@ a. owned by user bandit7<br>
 b. owned by group bandit6<br>
 c. 33 bytes in size
 
-The **find** command can be used to find files on the server. Running the command **find / -type f -user bandit7 -group bandit6 -size 33c** .however, it will also print a Permission denied error for files that we do not have permission. so, we have used 2>/dev/null to hide the error messages. Now as we can see in the given image, we successfully located the password file hidden over the server. So, let’s read it using **cat** command.
+The **find** command can be used to find files on the server. Running the command **find / -type f -user bandit7 -group bandit6 -size 33c**. However, it will also print a Permission denied error for files that we do not have permission. So, we have to used 2>/dev/null to hide the error messages. Now as we can see in the given image, we successfully located the password file hidden over the server. So, let’s read it using **cat** command.
 
 <img width="772" height="165" alt="image" src="https://github.com/user-attachments/assets/52e385e5-64c9-42ca-a554-68314d43f3cb" />
 
