@@ -118,5 +118,18 @@ The **find** command can be used to find files on the server. Running the comman
 
 This gives us the password for the next level.
 
+# Bandit Level 7 → Level 8
+http://overthewire.org/wargames/bandit/bandit8.html
+
+**SOLUTION**
+
+The password for the next level is stored in the file data.txt next to the word millionth.
+
+we use the **ls** command. We are hinted that the password isi next to the word millionth. We are going to use the **grep** command for finding millionth. Here we using the (**|**), that pipe the output of **cat** to **grep** as input to look through a text file. In our case, first cat command reads the file and then the data inside the file is sent to grep command to work on.
+
+<img width="537" height="98" alt="Screenshot 2026-04-29 205555" src="https://github.com/user-attachments/assets/2865094a-7f81-4704-ab6b-c4cbb460a1c4" />
+
+This gives us the password for the next level.
+
 
 
