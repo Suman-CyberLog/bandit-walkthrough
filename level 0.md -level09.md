@@ -132,4 +132,24 @@ we use the **ls** command. We are hinted that the password isi next to the word 
 This gives us the password for the next level.
 
 
+# Bandit Level 8 → Level 9
+http://overthewire.org/wargames/bandit/bandit9.html
+
+**SOLUTION**
+
+The password for the next level is stored in the file data.txt and is the only line of text that occurs only once.
+
+To find the line that occurs only once in the file. We first sort the text inside the data.txt file, and then filter for the unique one.
+
+<img width="596" height="108" alt="Screenshot 2026-04-29 205840" src="https://github.com/user-attachments/assets/1b79d594-5fe2-4300-96e1-a35eb5f7eb5a" />
+
+This gives us the password for the next level.
+
+
+# Bandit Level 9 → Level 10
+http://overthewire.org/wargames/bandit/bandit10.html
+
+**SOLUTION**
+
+The password for the next level is stored in the file data.txt in one of the few human-readable strings, beginning with several ‘=’ characters.
 
