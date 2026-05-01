@@ -153,3 +153,36 @@ http://overthewire.org/wargames/bandit/bandit10.html
 
 The password for the next level is stored in the file data.txt in one of the few human-readable strings, beginning with several ‘=’ characters.
 
+Now if we are to use the **cat** command our screen would be filled with unreadable mesh. So, first, we need to distinguish human-readable strings in ‘data.txt’. We use the **strings** command. And to get to the exact location of the password, we are going to use grep. Since the task was unspecific regarding the number of equal signs, I used 3. 
+
+<img width="553" height="116" alt="Screenshot 2026-04-29 210424" src="https://github.com/user-attachments/assets/be3448de-d991-44cf-9ff3-9dc3e0a49493" />
+
+This gives us the password for the next level. 
+
+
+# Bandit Level 10 → Level 11
+http://overthewire.org/wargames/bandit/bandit11.html
+
+**SOLUTION**
+
+The password for the next level is stored in the file data.txt, which contains base64 encoded data.
+
+We can read the file using the **cat** command and **decode** the Base64 ourselves, but there's a Linux command that can handle this for us. We use piping to combine the **cat** command and the **base64** command with the **d** parameter to read and decode the text at the same time. 
+
+<img width="747" height="115" alt="Screenshot 2026-04-29 210656" src="https://github.com/user-attachments/assets/c8f84fa5-af5a-40e0-b52e-5e2698ae50b2" />
+
+This gives us the password for the next level.
+
+
+# Bandit Level 11 → Level 12
+http://overthewire.org/wargames/bandit/bandit12.html
+
+**SOLUTION**
+
+The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions.
+
+The data.txt file contains 1 line that was encrypted with the ROT13 algorithm.Many websites provide ROT13 encryption and decryption, but unfortunately, Linux does not have a built-in ROT13 command.So, I utilized the **tr** command for substitution. This command translates characters depending on the parameters provided - A->N,…,Z->M.
+
+<img width="722" height="103" alt="image" src="https://github.com/user-attachments/assets/876b4613-59b0-4203-a366-72c081b455b9" />
+
+his gives us the password for the next level.
