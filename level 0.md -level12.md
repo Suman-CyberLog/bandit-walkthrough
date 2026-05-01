@@ -58,7 +58,7 @@ http://overthewire.org/wargames/bandit/bandit3.html
 
 **SOLUTION**
 
-The password for the next level is stored inside a file named spaces in this filename. So, we use the **ls** command. In order to read files with spaces in the name you have to put the file name in quotation marks. We ran " **cat "spaces in this filename**" " and received the next password:
+The password for the next level is stored inside a file named spaces in this filename. So, we use the **ls** command. In order to read files with spaces in the name you have to put the file name in quotation marks. We ran **cat ./"spaces in this filename"** and received the next password:
 
 <img width="500" height="92" alt="image" src="https://github.com/user-attachments/assets/02493a07-b8f1-4e55-a378-6f367294e784" />
 
@@ -185,4 +185,54 @@ The data.txt file contains 1 line that was encrypted with the ROT13 algorithm.Ma
 
 <img width="722" height="103" alt="image" src="https://github.com/user-attachments/assets/876b4613-59b0-4203-a366-72c081b455b9" />
 
-his gives us the password for the next level.
+This gives us the password for the next level.
+
+
+# Bandit Level 12 → Level 13
+http://overthewire.org/wargames/bandit/bandit13.html
+
+**SOLUTION**
+
+The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed.  For this level it may be useful to create a directory under /tmp in which you can work using mkdir. Then copy the datafile using cp, and rename it using mv.
+
+<img width="651" height="132" alt="image" src="https://github.com/user-attachments/assets/81582c5f-586b-4bd2-b013-38c9e3e02d73" />
+
+Now to understand the type of file we are going to use the file command it returns us the type of file. On running the command, we are informed that the file is ASCII text.The xxd command in Linux creates a hexdump of a file. It can also reverse this process. We will use it to get back the original file. We will use the **'r'** option to reverse the process and specify a filename for the output. We will call it **data1**. Now, let's verify the retrieved file by using the file command once more. This indicates that it is a **gzip compressed file**.
+
+Next, we need to decompress it. First, we will rename the file to give it the correct **gzip** extension. We will use the move command for this purpose. The file has been renamed to **data2.gz**. Now, we will use the gzip command with the **-d** option to decompress the file.
+
+Now it's time to verify the retrieved file, so we use the file command once more. This indicates that it is a **bzip2 compressed file**.
+
+Next, to decompress it, we must rename the file and give it the correct **bzip2 extension**. We will use the move command for this purpose. We renamed the file to **data3.bz2**. Now, we will use the bzip2 command with the **-d** option to decompress the file.
+
+Again we will check the retrieved file by using file command. This shows us that it is a **gzip compressed file**.
+
+ we need to rename the file and assign it the appropriate **gzip extension**. We will use the move command for this as well. We renamed the file to **data4.gz**. Now, using the gzip command with the -**d** parameter, we decompress the file.
+
+We again use the file command to check the retrieved file and now it is a tar archive file.
+
+
+ <img width="825" height="530" alt="image" src="https://github.com/user-attachments/assets/2e482b16-4d96-4c6c-a1af-8d8bd7ac5270" />
+
+
+To extract the files, we will utilize the **tar** command with the -**xf** options (where -x = Extract files from an archive and -f =Use the following archive file). This will result in a file called **data5.bin**. 
+
+we use the file command again to check the retrieved file. To extract the files, we will use the **tar** command with the **-xf** options. This will result in a file called **data6.bin**. 
+
+Again running file command on the retrieved file and this time it is a bzip2 compressed file. Now using the **bzip2** command and **-d** parameter, we decompress the file named **data6.bin.out**.
+
+and again checking the retrieved file with file command and now it is a tar archive file. 
+
+To extract the files, we will utilize the **tar** command with the -**xf** options . This will result in a file called **data8.bin**.
+
+We again use the file command to check the retrieved file and now it is a gzip compressed file. 
+
+we need to rename the file and assign it the appropriate **gzip extension**. We will use the move command for this as well. We renamed the file to **data9.gz**. Now, using the gzip command with the -**d** parameter, we decompress the file. 
+
+<img width="976" height="595" alt="image" src="https://github.com/user-attachments/assets/3fbe0c17-7052-48cb-8af4-42accedc2567" />
+
+Now, on running the  file command on the **data9** file , we are informed that the file is ASCII text. This could be a readable file. We use the head command to access the file.
+
+<img width="532" height="87" alt="image" src="https://github.com/user-attachments/assets/20335466-46cd-4e6f-9202-da3a467fe26e" />
+
+This gives us the password for the next level. 
