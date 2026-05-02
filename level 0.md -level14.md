@@ -251,13 +251,15 @@ We have used  scp to connect to the remote machine and get the ssh key.
 <img width="797" height="255" alt="Screenshot 2026-05-02 200145" src="https://github.com/user-attachments/assets/7858d712-e9d1-4fda-9535-6555e63953b7" />
 
 
-Now, we have the sshkey.private in our machine.  we have to change its permission using **chmod** command. So, why are we changing the permission  it's because SSH checks the security of your private key file. If the file is accessible by others (like permissions 644 or 777), SSH will refuse to use it.
+Now, we have the sshkey.private in our machine.  we have to change its permission using **chmod** command. So, why are we changing the permission  it's because SSH checks the security of your private key file. If the file is accessible by others except owner (like permissions 644 or 777), SSH will refuse to use it.
 
 After changing the permission to 600. we can use the sshkey.private file in ssh command. 
 
+
 <img width="636" height="337" alt="image" src="https://github.com/user-attachments/assets/da9e44d7-72e4-4e7a-93d5-b5cac2e469c2" />
 
-And we got into the server as bandit14. We can also check the password for bandit14 by using cat command path of the passwaord file.
+
+And we got into the server as bandit14. We can also check the password for bandit14 by using cat command path of the password file.
 
 <img width="697" height="55" alt="image" src="https://github.com/user-attachments/assets/6fee7509-0c38-4396-9e8a-2f493548f193" />
 
