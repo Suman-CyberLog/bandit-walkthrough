@@ -236,3 +236,32 @@ Now, on running the  file command on the **data9** file , we are informed that t
 <img width="532" height="87" alt="image" src="https://github.com/user-attachments/assets/20335466-46cd-4e6f-9202-da3a467fe26e" />
 
 This gives us the password for the next level. 
+
+
+# Bandit Level 13 → Level 14
+http://overthewire.org/wargames/bandit/bandit14.html
+
+**SOLUTION**
+
+The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don�t get the next password, but you get a private SSH key that can be used to log into the next level. 
+
+When I logged into the machine, we saw **sshkey.private** file using the **ls** command. Now that we know where the file is located, we can move it to my machine.
+We have used  scp to connect to the remote machine and get the ssh key.
+
+<img width="797" height="255" alt="Screenshot 2026-05-02 200145" src="https://github.com/user-attachments/assets/7858d712-e9d1-4fda-9535-6555e63953b7" />
+
+
+Now, we have the sshkey.private in our machine.  we have to change its permission using **chmod** command. So, why are we changing the permission  it's because SSH checks the security of your private key file. If the file is accessible by others (like permissions 644 or 777), SSH will refuse to use it.
+
+After changing the permission to 600. we can use the sshkey.private file in ssh command. 
+
+<img width="636" height="337" alt="image" src="https://github.com/user-attachments/assets/da9e44d7-72e4-4e7a-93d5-b5cac2e469c2" />
+
+And we got into the server as bandit14. We can also check the password for bandit14 by using cat command path of the passwaord file.
+
+<img width="697" height="55" alt="image" src="https://github.com/user-attachments/assets/6fee7509-0c38-4396-9e8a-2f493548f193" />
+
+This gives us the password for the next level.
+
+
+
