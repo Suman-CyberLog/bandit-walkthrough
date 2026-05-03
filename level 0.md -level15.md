@@ -265,5 +265,18 @@ And we got into the server as bandit14. We can also check the password for bandi
 
 This gives us the password for the next level.
 
+# Bandit Level 14 → Level 15
+http://overthewire.org/wargames/bandit/bandit15.html
+
+**SOLUTION**
+
+The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
+
+Based on the hint, we need to connect to port 30000 on localhost and then submit the password of this level to that same port.To achieve this, I executed "netcat localhost 30000" and after confirming the connection, I pasted the password for bandit14. 
+
+
+<img width="777" height="78" alt="Screenshot 2026-05-02 200748" src="https://github.com/user-attachments/assets/01836934-e513-4573-8571-c0aa3394b423" />
+
+This gives us the password for the next level.
 
 
