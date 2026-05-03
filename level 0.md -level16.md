@@ -272,11 +272,24 @@ http://overthewire.org/wargames/bandit/bandit15.html
 
 The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
 
-Based on the hint, we need to connect to port 30000 on localhost and then submit the password of this level to that same port.To achieve this, I executed "netcat localhost 30000" and after confirming the connection, I pasted the password for bandit14. 
+Based on the hint, we need to connect to port 30000 on localhost and then submit the password of this level to that same port.To achieve this, I used "netcat localhost 30000" and after confirming the connection, I pasted the password for bandit14. 
 
 
 <img width="777" height="78" alt="Screenshot 2026-05-02 200748" src="https://github.com/user-attachments/assets/01836934-e513-4573-8571-c0aa3394b423" />
 
 This gives us the password for the next level.
 
+# Bandit Level 15 → Level 16
+http://overthewire.org/wargames/bandit/bandit16.html
 
+**SOLUTION**
+
+The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL encryption.
+
+Because the challenge says we can get the password by using SSL encryption, I'm going to connect to the local server using the OpenSSL client and send the password of the current level. After that, the server will send back the password needed for the next stage.
+
+<img width="685" height="233" alt="Screenshot 2026-05-02 212310" src="https://github.com/user-attachments/assets/30d4c775-19b7-4ff0-938e-31a27f938ec6" />
+<img width="685" height="112" alt="Screenshot 2026-05-02 212337" src="https://github.com/user-attachments/assets/e8ff4d94-c954-4022-b087-c25fdf61e800" />
+
+
+This gives us the password for the next level.
