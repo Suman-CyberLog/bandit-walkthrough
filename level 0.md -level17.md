@@ -293,3 +293,28 @@ Because the challenge says we can get the password by using SSL encryption, I'm 
 
 
 This gives us the password for the next level.
+
+# Bandit Level 16 → Level 17
+http://overthewire.org/wargames/bandit/bandit17.html
+
+**SOLUTION**
+
+The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL/TLS and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
+
+To start, we should identify the open ports from 31000 to 32000 on localhost and see what services are running on those ports. To do this I ran the **nmap** command with **-sV** flag for localhost on the above mentioned port range , to see the open port and the version of the services.
+
+<img width="741" height="181" alt="Screenshot 2026-05-04 223219" src="https://github.com/user-attachments/assets/df9a146b-72fd-40cb-be97-bb7c2456c998" />
+
+As we can see, there are five open ports. Out of these, only two ports (31518 and 31790) are utilizing SSL. Port 31518 is running the echo service and port 31790 runs an unknown service ,which seems quite promising. So, We are now using OpenSSL  with -**ign_eof**, (which means Ignore End of the file so with this flag  the connection stays open and we receive the output properly).
+
+
+<img width="646" height="138" alt="Screenshot 2026-05-03 210913" src="https://github.com/user-attachments/assets/f6779687-0fae-4735-8364-7d7bd3149f56" />
+<img width="646" height="228" alt="Screenshot 2026-05-03 211015" src="https://github.com/user-attachments/assets/5aada543-75c2-4fbd-89a4-20a956bb62dc" />
+
+After running the command and sending the password we have received a private SSH key. We start by creating a file with the vim editor, which I named 'bandit17.key', to store the key. Next, we modify the file's permissions to make it read-only for the current user by using the chmod command. 
+
+<img width="662" height="119" alt="Screenshot 2026-05-03 211046" src="https://github.com/user-attachments/assets/10055a8c-58c8-434e-af53-69e6f21ee30a" />
+<img width="662" height="44" alt="Screenshot 2026-05-03 211105" src="https://github.com/user-attachments/assets/36894603-e4a8-4500-b735-038d134473cb" />
+
+
+Finally, we use ssh along with the private key to connect to level 17.
