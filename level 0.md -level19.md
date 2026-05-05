@@ -331,3 +331,21 @@ I was already logged into the bandit17 in the previous level. Now i have checked
 
 <img width="791" height="167" alt="Screenshot 2026-05-03 211336" src="https://github.com/user-attachments/assets/e1253bab-0cba-48de-8d33-10b3b0563963" />
 
+# Bandit Level 18 → Level 19
+http://overthewire.org/wargames/bandit/bandit19.html
+
+**SOLUTION**
+
+The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
+
+The file '.bashrc' is running each time a terminal is initiated. Consequently, it is also runnig during SSH logins. SSH not only allow us to access a machine remotely, but it also facilitates the remote execution of commands after the common SSH expression.
+
+First, we use **ls** to confirm that the 'readme file' is present in the folder, and then we can use **cat** to view its contents.
+
+<img width="687" height="507" alt="Screenshot 2026-05-05 182149" src="https://github.com/user-attachments/assets/cd28415a-7f72-44e2-88d2-47a1a8481e03" />
+
+
+This gives us the password for the next level.
+
+
+
