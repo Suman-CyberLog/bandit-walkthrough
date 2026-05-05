@@ -318,3 +318,16 @@ After running the command and sending the password we have received a private SS
 
 
 Finally, we use ssh along with the private key to connect to level 17.
+
+
+# Bandit Level 17 → Level 18
+http://overthewire.org/wargames/bandit/bandit18.html
+
+**SOLUTION**
+
+There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new.
+
+I was already logged into the bandit17 in the previous level. Now i have checked the file using **ls** command i.e. passwords.old and passwords.new. I ran "diff password.new passwords.old" and since I placed 'passwords.new' in the first position, the new password is printed in that same first part.
+
+<img width="791" height="167" alt="Screenshot 2026-05-03 211336" src="https://github.com/user-attachments/assets/e1253bab-0cba-48de-8d33-10b3b0563963" />
+
