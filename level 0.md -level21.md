@@ -371,3 +371,15 @@ This means that when the file is run, it will operate as bandit20. The passwords
 
 This give us the password for the next level.
 
+# Bandit Level 20 → Level 21
+http://overthewire.org/wargames/bandit/bandit21.html
+
+**SOLUTION**
+
+There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
+
+After logging in, I can see an executable named suconnect in the home directory. To run this,we will utilize the two terminal screen. In the first terminal, we can establish a connection in server mode with '**netcat**', which will listen for incoming connections. To have netcat transmit the password, I will use **echo** and pipe it into netcat. The **-n** flag is included to avoid newline characters in the input. Finally, we will let the process run in the background by using **&**.
+
+<img width="1777" height="380" alt="Screenshot 2026-05-05 191131" src="https://github.com/user-attachments/assets/e4e45073-c357-4443-a7b4-a0bd268c5b9c" />
+
+In the second terminal, execute the suconnect file with port 1234, which will connect to our netcat server, receive the password provided through echo, and return the next password.
