@@ -345,7 +345,29 @@ First, we use **ls** to confirm that the 'readme file' is present in the folder,
 <img width="687" height="507" alt="Screenshot 2026-05-05 182149" src="https://github.com/user-attachments/assets/cd28415a-7f72-44e2-88d2-47a1a8481e03" />
 
 
-This gives us the password for the next level.
+This gives us the password for the next level. But we can **"alternatively"** use different method to do the same  by  using a command using SSH, but with the **-t** flag. This enables a ‘pseudo-terminal’ to operate on the target machine, allowing us to run **\bin\sh**. This method is particularly beneficial when we need to run several commands, as it eliminates the need to repeatedly enter the SSH statement and password.
+
+<img width="739" height="326" alt="Screenshot 2026-05-05 181824" src="https://github.com/user-attachments/assets/d60ecfb7-e57a-4685-8082-9211f7569923" />
+
+This will also give us the password.
+
+# Bandit Level 19 → Level 20
+http://overthewire.org/wargames/bandit/bandit20.html
+
+**SOLUTION**
+
+To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
+
+After logging into bandit19's profile, I executed the command "**ls**" and discovered a binary file called "**bandit20-do**". The hint indicated that I should run the file, so I proceeded with the command "**./bandit20-do**". The output displayed, "Run a command as another user. Example: ./bandit20-do whoami". Following that, I executed "**./bandit20-do id**" and was able to view the id information for bandit20. The script appeared to function as described, allowing me to "run a command as another user".
+
+<img width="1276" height="201" alt="Screenshot 2026-05-05 183825" src="https://github.com/user-attachments/assets/1fb59f98-ec7b-4599-a94e-da5d3b888889" />
 
 
+Then I check who the owner of the setuid binary is using **ls -l** command. the owner is bandit20 and the group is bandit19. The permission set ‘**-rwsr-x—**’ indicates that the user bandit19 has the ability to execute the binary, but it runs under the identity of user bandit20.
+
+This means that when the file is run, it will operate as bandit20. The passwords for all levels can be found in the directory /etc/bandit_pass/, although each password file is configured with read and access permissions limited to the user of the corresponding level only. To retrieve the key for level 20, use the bandit20-do executable to access the bandit20 password file.
+
+<img width="580" height="57" alt="Screenshot 2026-05-05 183921" src="https://github.com/user-attachments/assets/0c679328-5ad9-4645-b0ca-cd0d3d704428" />
+
+This give us the password for the next level.
 
