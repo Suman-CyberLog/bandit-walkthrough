@@ -383,3 +383,20 @@ After logging in, I can see an executable named suconnect in the home directory.
 <img width="1777" height="380" alt="Screenshot 2026-05-05 191131" src="https://github.com/user-attachments/assets/e4e45073-c357-4443-a7b4-a0bd268c5b9c" />
 
 In the second terminal, execute the suconnect file with port 1234, which will connect to our netcat server, receive the password provided through echo, and return the next password.
+
+# Bandit Level 21 → Level 22
+http://overthewire.org/wargames/bandit/bandit22.html
+
+**SOLUTION**
+
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+Based on the hint, there's a configuration for a cron job located in "/etc/cron.d/" that will assist us in completing this level. Cron is a program that executes a specific command or script at designated times or intervals. When I navigated to the "/etc/cron.d/" directory and executed "**ls**", I noticed several files, but I figured we should focus on the file named "cronjob_bandit22".
+
+ I ran "cat /etc/cron.d/cronjob_bandit22" to check what the cron job was doing, and I discovered that the script located at /usr/bin/cronjob_bandit22.sh is executed by the bandit22 user. The five asterisks signify that it runs every minute, every day. To know what exactly is executed, we need to take a look at the bash file. 
+
+ This script generates a file in the 'tmp' directory and grants read access to all users. It then transfers the contents of the bandit22 password file into the newly created file.
+
+ Therefore, the password for the next level can be found in this generated file:
+
+ <img width="1046" height="262" alt="Screenshot 2026-05-07 200934" src="https://github.com/user-attachments/assets/69d08d63-5e95-47d8-878c-24850a348eae" />
