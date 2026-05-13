@@ -441,4 +441,30 @@ After the cron job executes, check the contents of the password file in your tem
 
 The output will display the password for bandit24.
 
+# Bandit Level 24 → Level 25
+https://overthewire.org/wargames/bandit/bandit25.html
 
+**SOLUTION**
+
+After logging in, the level description explains that a daemon is listening on localhost port 30002. The daemon expects two inputs:
+
+1.the current password for bandit24
+2.a secret 4-digit PIN
+
+The PIN ranges from 0000 to 9999, so the goal is to brute-force every possible combination until the correct PIN is found.
+
+To get started, create a temporary directory. Inside this directory, we will generate 2 files, each containing 5000 lines, which will split the 10000 combinations. 
+
+To generate the first list, utilize a for loop with the variable i set to a range from 0000 to 5000, echoing the password of current level $i and appending it to a file named list1.
+
+<img width="957" height="103" alt="Screenshot 2026-05-13 122554" src="https://github.com/user-attachments/assets/be9b8052-ce56-4971-8a38-ae59ac912fe0" />
+
+ Do the same again, but change the range to 5001 to 9999 and direct the output to list2. At this point, you should have 2 list files, each containing half of the possible combinations to test.
+
+ <img width="962" height="52" alt="Screenshot 2026-05-13 122717" src="https://github.com/user-attachments/assets/79d9cb74-9254-47f6-b325-15e8c1c4cfa0" />
+
+ Next, **cat** the lists, pipe this output to **nc** directed at localhost on port 30002, and then pipe it into the **uniq** command to show only unique outputs.
+
+<img width="1137" height="109" alt="Screenshot 2026-05-13 122758" src="https://github.com/user-attachments/assets/898ef3b0-4551-4ae7-b819-4aa20839714d" />
+
+ Finish this process to obtain the key for level 25.
