@@ -468,3 +468,40 @@ To generate the first list, utilize a for loop with the variable i set to a rang
 <img width="1137" height="109" alt="Screenshot 2026-05-13 122758" src="https://github.com/user-attachments/assets/898ef3b0-4551-4ae7-b819-4aa20839714d" />
 
  Finish this process to obtain the key for level 25.
+
+
+# Bandit Level 25 → Level 26
+https://overthewire.org/wargames/bandit/bandit26.html
+
+**SOLUTION**
+
+Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.
+
+The hint tells us that the user bandit26 does not use a normal shell. To confirm this, we need to check the user entry in the passwd file.
+
+<img width="790" height="207" alt="Screenshot 2026-05-14 195940" src="https://github.com/user-attachments/assets/1611e7dc-a978-4df5-8765-98bc60ca4f29" />
+
+The output shows that the login shell for bandit26 is not a standard shell like /bin/bash. Instead, it points to a script called showtext.
+
+Next, I connected using the private SSH key that was provided in the level. I copied the key into a file on my machine and adjusted the permissions so SSH would accept it.
+
+<img width="311" height="52" alt="Screenshot 2026-05-14 192733" src="https://github.com/user-attachments/assets/06c90f31-64f1-4876-baec-dbeab04714cb" />
+<img width="298" height="47" alt="Screenshot 2026-05-14 192749" src="https://github.com/user-attachments/assets/16dcc8fe-cec6-4a33-9ba3-31feb67a9746" />
+
+Then I logged in with the private key but the connection immediately closed after login. This happens because the script /usr/bin/showtext is executed automatically instead of giving us an interactive shell. 
+
+Looking at the script, it simply opens a text file using the more command. Since the file is very short, more exits instantly and the session closes.
+
+To work around this, I resized the terminal window to make it very small before logging in. This forced more into interactive mode because the text could no longer fit on the screen at once.
+
+<img width="1073" height="196" alt="image" src="https://github.com/user-attachments/assets/5f57fecf-a47c-4b35-9e4f-bac30cc7298e" />
+
+Once more was appeared on the terminal, I pressed "v" ,this opened the text inside vim.
+
+Inside vim, I first changed the shell setting to use Bash instead of the restricted shell by typing "**:set shell=/bin/bash**  followed by **:shell** ".
+
+This gave me an interactive Bash shell as the bandit26 user.
+
+<img width="472" height="307" alt="image" src="https://github.com/user-attachments/assets/b18c7915-3a15-4b89-9759-840de077b9c4" />
+
+Finally, I retrieved the password for the next level by reading the password file.
